@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Resorts</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Resort name</th>
+      <th>Resort url</th>
+      <th>Recent time</th>
+      <th>Recent snowfall</th>
+      <th>Next snowfall</th>
+      <th>Next5 snowfall</th>
+      <th>State</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @resorts.each do |resort| %>
+      <tr>
+        <td><%= resort.resort_name %></td>
+        <td><%= resort.resort_url %></td>
+        <td><%= resort.recent_time %></td>
+        <td><%= resort.recent_snowfall %></td>
+        <td><%= resort.next_snowfall %></td>
+        <td><%= resort.next5_snowfall %></td>
+        <td><%= resort.state_id %></td>
+        <td><%= link_to 'Show', resort %></td>
+        <td><%= link_to 'Edit', edit_resort_path(resort) %></td>
+        <td><%= link_to 'Destroy', resort, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Resort', new_resort_path %>

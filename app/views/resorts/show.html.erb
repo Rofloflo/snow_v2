@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Resort name:</strong>
+  <%= @resort.resort_name %>
+</p>
+
+<p>
+  <strong>Resort url:</strong>
+  <%= @resort.resort_url %>
+</p>
+
+<p>
+  <strong>Recent time:</strong>
+  <%= @resort.recent_time %>
+</p>
+
+<p>
+  <strong>Recent snowfall:</strong>
+  <%= @resort.recent_snowfall %>
+</p>
+
+<p>
+  <strong>Next snowfall:</strong>
+  <%= @resort.next_snowfall %>
+</p>
+
+<p>
+  <strong>Next5 snowfall:</strong>
+  <%= @resort.next5_snowfall %>
+</p>
+
+<p>
+  <strong>State:</strong>
+  <%= @resort.state_id %>
+</p>
+
+<%= link_to 'Edit', edit_resort_path(@resort) %> |
+<%= link_to 'Back', resorts_path %>
