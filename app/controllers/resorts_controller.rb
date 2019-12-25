@@ -25,7 +25,6 @@ class ResortsController < ApplicationController
   # POST /resorts.json
   def create
     @resort = Resort.new(resort_params)
-
     respond_to do |format|
       if @resort.save
         format.html { redirect_to @resort, notice: 'Resort was successfully created.' }
