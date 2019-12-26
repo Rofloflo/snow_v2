@@ -14,7 +14,7 @@
   <tbody>
     <% @states.each do |state| %>
       <tr>
-        <td><%= state.state_name %></td>
+        <td><%= link_to '@state', state.state_name %></td>
         <td><%= state.state_url %></td>
         <td><%= link_to 'Show', state %></td>
         <td><%= link_to 'Edit', edit_state_path(state) %></td>
