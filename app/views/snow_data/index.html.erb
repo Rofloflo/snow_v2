@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Snow Data</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Recent time</th>
+      <th>Recent snowfall</th>
+      <th>Next snowfall</th>
+      <th>Next5 snowfall</th>
+      <th>Resort</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @snow_data.each do |snow_datum| %>
+      <tr>
+        <td><%= snow_datum.recent_time %></td>
+        <td><%= snow_datum.recent_snowfall %></td>
+        <td><%= snow_datum.next_snowfall %></td>
+        <td><%= snow_datum.next5_snowfall %></td>
+        <td><%= snow_datum.resort_id %></td>
+        <td><%= link_to 'Show', snow_datum %></td>
+        <td><%= link_to 'Edit', edit_snow_datum_path(snow_datum) %></td>
+        <td><%= link_to 'Destroy', snow_datum, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Snow Datum', new_snow_datum_path %>
+
+
+State: <%= @State.state_name %><br />
+<% @state.resorts.each do |resort| %>
+  Resort: <%= resort.resort_name %><br />
+  <% resort.snow_data.each do |snow_data| %>
+    Snow Data: <%= snow_data.recent_time %><br />
+  <% end %>
+<% end %>

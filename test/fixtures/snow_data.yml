@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  recent_time: MyString
+  recent_snowfall: 1
+  next_snowfall: 1
+  next5_snowfall: 1
+  resort_id: 1
+
+two:
+  recent_time: MyString
+  recent_snowfall: 1
+  next_snowfall: 1
+  next5_snowfall: 1
+  resort_id: 1

@@ -4,4 +4,3 @@ end
 
 
 
-#recent_cm = resort.recent_snowfall * 1.6

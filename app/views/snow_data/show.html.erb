@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Recent time:</strong>
+  <%= @snow_datum.recent_time %>
+</p>
+
+<p>
+  <strong>Recent snowfall:</strong>
+  <%= @snow_datum.recent_snowfall %>
+</p>
+
+<p>
+  <strong>Next snowfall:</strong>
+  <%= @snow_datum.next_snowfall %>
+</p>
+
+<p>
+  <strong>Next5 snowfall:</strong>
+  <%= @snow_datum.next5_snowfall %>
+</p>
+
+<p>
+  <strong>Resort:</strong>
+  <%= @snow_datum.resort_id %>
+</p>
+
+<%= link_to 'Edit', edit_snow_datum_path(@snow_datum) %> |
+<%= link_to 'Back', snow_data_path %>
