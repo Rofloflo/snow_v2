@@ -5,19 +5,23 @@
   <p><small><%= link_to @state.state_url, @state.state_url %></small></p>
 </h1>
 
-<h4>
-<div class="row">
-  <div class="col-sm-4"><strong>Resort Name</strong></div>
-  <div class="col-sm-8"><strong>Resort URL</strong></div>
-</div>
-</h4>
+<table class = "table table-striped">
+  <thead>
+    <tr>
+      <th>Resort Name</th>
+      <th>Resort URL</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @resorts.each do |resort| %>
+    <tr>
+      <td><%= link_to resort.resort_name, resort_path(:id => resort.id)%></td>
+      <td><%= link_to @resort_url, resort.resort_url %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
 
-<% @resorts.each do |resort| %>
-  <div class="row">
-    <div class="col-sm-4"><%= link_to resort.resort_name, resort_path(:id => resort.id)%></div>
-    <div class="col-sm-8"><%= link_to @resort_url, resort.resort_url %></div>
-  </div>
-<% end %>
 <br>
 <%= link_to 'Back', states_path %>
 </div>

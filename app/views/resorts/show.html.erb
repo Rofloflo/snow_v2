@@ -5,24 +5,27 @@
   <p><small><%= link_to @resort.resort_url, @resort.resort_url%></small></p>
 </h1>
 
-<h4>
-<div class="row">
-  <div class="col-sm-6"><strong>Update Source/Time</strong></div>
-  <div class="col-sm-2"><strong>Recent Snow</strong></div>
-  <div class="col-sm-2"><strong>Next Day Snow</strong></div>
-  <div class="col-sm-2"><strong>Next 5 Days Snow</strong></div>
-</div>
-</h4>
+<table class = "table table-striped">
+  <thead>
+    <tr>
+      <th>Update Source/Time</th>
+      <th>Recent Snow</th>
+      <th>Next Day Snow</th>
+      <th>Next 5 Days Snow</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @snow_data.each do |data| %>
+    <tr>
+      <td><%= data.recent_time %></td>
+      <td><%= data.recent_snowfall %>" &nbsp;(<%= data.recent_snowfall.nil? ? nil : data.recent_snowfall*2.54 %>cm)</td>
+      <td><%= data.next_snowfall %>" &nbsp;(<%= data.next_snowfall.nil? ? nil : data.next_snowfall*2.54 %>cm)</td>
+      <td><%= data.next5_snowfall %>" &nbsp;(<%= data.next5_snowfall.nil? ? nil : data.next5_snowfall*2.54 %>cm)</td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
 
-<% @snow_data.each do |data| %>
-  <div class="row">
-    <div class="col-sm-6"><%= data.recent_time %></div>
-    <div class="col-sm-2"><%= data.recent_snowfall %>" &nbsp;(<%= data.recent_snowfall.nil? ? nil : data.recent_snowfall*2.54 %>cm)</div>
-    <div class="col-sm-2"><%= data.next_snowfall %>" &nbsp;(<%= data.next_snowfall.nil? ? nil : data.next_snowfall*2.54 %>cm)</div>
-    <div class="col-sm-2"><%= data.next5_snowfall %>" &nbsp;(<%= data.next5_snowfall.nil? ? nil : data.next5_snowfall*2.54 %>cm)</div>
-  </div>
-<% end %>
 <br>
 <%= link_to 'Back', state_path(id: @resort.state_id) %>
 </div>
-
