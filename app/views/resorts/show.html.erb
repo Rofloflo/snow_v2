@@ -1,39 +1,28 @@
+<div class = "container">
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Resort name:</strong>
-  <%= @resort.resort_name %>
-</p>
+<h1><%= @resort.resort_name %> Snow Data
+  <p><small><%= link_to @resort.resort_url, @resort.resort_url%></small></p>
+</h1>
 
-<p>
-  <strong>Resort url:</strong>
-  <%= @resort.resort_url %>
-</p>
+<h4>
+<div class="row">
+  <div class="col-sm-6"><strong>Update Source/Time</strong></div>
+  <div class="col-sm-2"><strong>Recent Snow</strong></div>
+  <div class="col-sm-2"><strong>Next Day Snow</strong></div>
+  <div class="col-sm-2"><strong>Next 5 Days Snow</strong></div>
+</div>
+</h4>
 
-<p>
-  <strong>Recent time:</strong>
-  <%= @resort.recent_time %>
-</p>
+<% @snow_data.each do |data| %>
+  <div class="row">
+    <div class="col-sm-6"><%= data.recent_time %></div>
+    <div class="col-sm-2"><%= data.recent_snowfall %>" &nbsp;(<%= data.recent_snowfall.nil? ? nil : data.recent_snowfall*2.54 %>cm)</div>
+    <div class="col-sm-2"><%= data.next_snowfall %>" &nbsp;(<%= data.next_snowfall.nil? ? nil : data.next_snowfall*2.54 %>cm)</div>
+    <div class="col-sm-2"><%= data.next5_snowfall %>" &nbsp;(<%= data.next5_snowfall.nil? ? nil : data.next5_snowfall*2.54 %>cm)</div>
+  </div>
+<% end %>
+<br>
+<%= link_to 'Back', states_path(id: @resort.state_id) %>
+</div>
 
-<p>
-  <strong>Recent snowfall:</strong>
-  <%= @resort.recent_snowfall %>
-</p>
-
-<p>
-  <strong>Next snowfall:</strong>
-  <%= @resort.next_snowfall %>
-</p>
-
-<p>
-  <strong>Next5 snowfall:</strong>
-  <%= @resort.next5_snowfall %>
-</p>
-
-<p>
-  <strong>State:</strong>
-  <%= @resort.state_id %>
-</p>
-
-<%= link_to 'Edit', edit_resort_path(@resort) %> |
-<%= link_to 'Back', resorts_path %>

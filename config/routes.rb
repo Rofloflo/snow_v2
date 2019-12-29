@@ -10,4 +10,7 @@ Rails.application.routes.draw do
     resources :snow_data
   end
 
+  get '/resorts/:id', to: 'resorts#show', as: 'resortget'
+  get '/states/:id', to: 'states#show', as: 'stateget'
+
 end

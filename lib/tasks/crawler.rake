@@ -83,7 +83,7 @@ def crawl_snow_data
   future5_snowfall  = resort_page.css("#forecast-block > div:nth-child(2) > div > div:nth-child(2) > div > div:nth-child(1)").text.strip.scan(/\d/).join('')
   @next_snowfall = normalize_snowfall_str(future_snowfall)  
   @next5_snowfall = normalize_snowfall_str(future5_snowfall)
-  @r = Resort.find_by(resort_url: resort)
+  @r = Resort.find_by(resort_url: resort) #setup snow data association to resort
   @r_id = @r.id
 
   save_snow_data

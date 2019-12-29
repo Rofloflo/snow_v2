@@ -1,32 +1,27 @@
+<div class = "container">
 <p id="notice"><%= notice %></p>
 
 <h1>Resorts</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Resort name</th>
-      <th>Resort url</th>
-      <th>State</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<div class="row">
+  <div class="col-sm-4"><strong>Resort Name</strong></div>
+  <div class="col-sm-7"><strong>Resort URL</strong></div>
+  <div class="col-sm-1"><strong>State</strong></div>
+</div>
 
-  <tbody>
-    <% @resorts.each do |resort| %>
-      <tr>
-        <td><%= link_to @resort, resort.resort_name %></td>
-        <td><%= link_to @resort_url, resort.resort_url %></td>
-        <td><%= resort.state_id %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
+<% @resorts.each do |resort| %>
+  <div class="row">
+    <div class="col-sm-4"><%= link_to resort.resort_name, {:action => 'show', :id => resort.id} -%></div>
+    <div class="col-sm-7"><%= link_to @resort_url, resort.resort_url %></div>
+    <div class="col-sm-1"><%= link_to resort.state_id, state_path(:id => resort.state_id) -%></div>
+  </div>
+<% end %>
 <br>
-
 <%= link_to 'States', "/state" %>
+</div>
 
 
 
-## recent_cm = resort.recent_snowfall * 2.54
+
+
+

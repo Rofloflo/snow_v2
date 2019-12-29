@@ -1,14 +1,23 @@
+<div class = "container">
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>State name:</strong>
-  <%= @state.state_name %>
-</p>
+<h1><%= @state.state_name %> Resorts
+  <p><small><%= @state.state_url %></small></p>
+</h1>
 
-<p>
-  <strong>State url:</strong>
-  <%= @state.state_url %>
-</p>
+<h4>
+<div class="row">
+  <div class="col-sm-4"><strong>Resort Name</strong></div>
+  <div class="col-sm-8"><strong>Resort URL</strong></div>
+</div>
+</h4>
 
-<%= link_to 'Edit', edit_state_path(@state) %> |
+<% @resorts.each do |resort| %>
+  <div class="row">
+    <div class="col-sm-4"><%= link_to resort.resort_name, resort_path(:id => resort.id)%></div>
+    <div class="col-sm-8"><%= link_to @resort_url, resort.resort_url %></div>
+  </div>
+<% end %>
+<br>
 <%= link_to 'Back', states_path %>
+</div>

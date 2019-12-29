@@ -10,6 +10,7 @@ class StatesController < ApplicationController
   # GET /states/1
   # GET /states/1.json
   def show
+    @resorts = Resort.where(state_id: @state.id)
   end
 
   # GET /states/new
@@ -24,15 +25,15 @@ class StatesController < ApplicationController
   # POST /states
   # POST /states.json
   def create
-    @state = State.new(snow_data_params)
+    @state = State.new(state_params)
 
     respond_to do |format|
-      if @snow_data.save
-        format.html { redirect_to @snow_data, notice: 'Snow Data was successfully created.' }
-        format.json { render :show, status: :created, location: @snow_data }
+      if @state.save
+        format.html { redirect_to @state, notice: 'State Data was successfully created.' }
+        format.json { render :show, status: :created, location: @state }
       else
         format.html { render :new }
-        format.json { render json: @snow_data.errors, status: :unprocessable_entity }
+        format.json { render json: @state.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -41,12 +42,12 @@ class StatesController < ApplicationController
   # PATCH/PUT /states/1.json
   def update
     respond_to do |format|
-      if @snow_data.update(snow_data_params)
-        format.html { redirect_to @snow_data, notice: 'State was successfully updated.' }
-        format.json { render :show, status: :ok, location: @snow_data }
+      if @state.update(state_params)
+        format.html { redirect_to @state, notice: 'State was successfully updated.' }
+        format.json { render :show, status: :ok, location: @state }
       else
         format.html { render :edit }
-        format.json { render json: @snow_data.errors, status: :unprocessable_entity }
+        format.json { render json: @state.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -54,9 +55,9 @@ class StatesController < ApplicationController
   # DELETE /states/1
   # DELETE /states/1.json
   def destroy
-    @snow_data.destroy
+    @state.destroy
     respond_to do |format|
-      format.html { redirect_to snow_data_url, notice: 'State was successfully destroyed.' }
+      format.html { redirect_to state_url, notice: 'State was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -64,7 +65,8 @@ class StatesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_state
-      @snow_data = SnowData.find(params[:id])
+      @state = State.find(params[:id])
+      @resort = Resort.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

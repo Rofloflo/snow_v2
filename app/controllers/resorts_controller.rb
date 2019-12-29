@@ -5,11 +5,16 @@ class ResortsController < ApplicationController
   # GET /resorts.json
   def index
     @resorts = Resort.all
+    @snow_data = SnowDatum.all
+    @states = State.all
   end
 
   # GET /resorts/1
   # GET /resorts/1.json
   def show
+    @snow_data = SnowDatum.where(resort_id: @resort.id)
+    #@resorts = Resort.where(state_id: @state.id)
+    #@states = State.where(resort_id: @resort.id)
   end
 
   # GET /resorts/new
@@ -64,6 +69,8 @@ class ResortsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_resort
       @resort = Resort.find(params[:id])
+      @snow_data = SnowDatum.find(params[:id])
+      #@state = State.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

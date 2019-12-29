@@ -1,24 +1,18 @@
+<div class = "container">
 <p id="notice"><%= notice %></p>
 
 <h1>States</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>State name</th>
-      <th>State url</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<div class="row">
+  <div class="col-sm-4"><strong>State Name</strong></div>
+  <div class="col-sm-8"><strong>State URL</strong></div>
+</div>
 
-  <tbody>
-    <% @states.each do |state| %>
-      <tr>
-        <td><%= link_to @state, state.state_name %></td>
-        <td><%= link_to @state_url, state.state_url %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
+<% @states.each do |state| %>
+  <div class="row">
+    <div class="col-sm-4"><%= link_to state.state_name, {:action => 'show', :id => state.id} -%></div>
+    <div class="col-sm-8"><%= link_to @state_url, state.state_url %></div>
+  </div>
+<% end %>
 <br>
+</div>

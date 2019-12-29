@@ -35,10 +35,16 @@
 <%= link_to 'New Snow Datum', new_snow_datum_path %>
 
 
-State: <%= @State.state_name %><br />
+<%
+=begin%>
+ State: <%= @State.state_name %><br />
 <% @state.resorts.each do |resort| %>
   Resort: <%= resort.resort_name %><br />
   <% resort.snow_data.each do |snow_data| %>
     Snow Data: <%= snow_data.recent_time %><br />
   <% end %>
-<% end %>
+<% end %> 
+<%
+=end%>
+
+SnowDatum.where(resort_id:31)
