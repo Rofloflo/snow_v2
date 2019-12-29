@@ -1,3 +1,9 @@
+<%    
+def convert_data_cm(data)
+  data.nil? ? nil : data *2.54
+end
+%>
+
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
@@ -30,9 +36,9 @@
   <% @snow_data.each do |data| %>
     <tr>
       <td><%= data.recent_time %></td>
-      <td><%= data.recent_snowfall %>" &nbsp;(<%= data.recent_snowfall.nil? ? nil : data.recent_snowfall*2.54 %>cm)</td>
-      <td><%= data.next_snowfall %>" &nbsp;(<%= data.next_snowfall.nil? ? nil : data.next_snowfall*2.54 %>cm)</td>
-      <td><%= data.next5_snowfall %>" &nbsp;(<%= data.next5_snowfall.nil? ? nil : data.next5_snowfall*2.54 %>cm)</td>
+      <td><%= data.recent_snowfall %>" &nbsp;(<%= convert_data_cm(data.recent_snowfall) %>cm)</td>
+      <td><%= data.next_snowfall %>" &nbsp;(<%= convert_data_cm(data.next_snowfall) %>cm)</td>
+      <td><%= data.next5_snowfall %>" &nbsp;(<%= convert_data_cm(data.next5_snowfall) %>cm)</td>
     </tr>
   <% end %>
   </tbody>
@@ -41,3 +47,4 @@
 <br>
 <button type = "button" class ="btn btn-info"><%= link_to 'Back', state_path(id: @resort.state_id) %></button>
 </div>
+

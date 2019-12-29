@@ -17,6 +17,8 @@ class ResortsController < ApplicationController
     #@states = State.where(resort_id: @resort.id)
   end
 
+
+
   # GET /resorts/new
   def new
     @resort = Resort.new
