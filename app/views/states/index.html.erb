@@ -26,7 +26,7 @@
   <% @states.each do |state| %>
     <tr>
       <td><%= link_to state.state_name, {:action => 'show', :id => state.id} -%></td>
-      <td><%= link_to @state_url, state.state_url %></td>
+      <td><%= link_to state.state_url, state.state_url %></td>
     </tr>
   <% end %>
   </tbody>

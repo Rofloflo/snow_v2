@@ -10,26 +10,26 @@
   </div>
 </nav>
 
-<div class = "container">
+<div class="container">
 <p id="notice"><%= notice %></p>
 
-<h1>Resorts</h1>
+  <h1>Resorts</h1>
 
-<div class="row">
-  <div class="col-sm-4"><strong>Resort Name</strong></div>
-  <div class="col-sm-7"><strong>Resort URL</strong></div>
-  <div class="col-sm-1"><strong>State</strong></div>
-</div>
-
-<% @resorts.each do |resort| %>
   <div class="row">
-    <div class="col-sm-4"><%= link_to resort.resort_name, {:action => 'show', :id => resort.id} -%></div>
-    <div class="col-sm-7"><%= link_to @resort_url, resort.resort_url %></div>
-    <div class="col-sm-1"><%= link_to resort.state_id, state_path(:id => resort.state_id) -%></div>
+    <div class="col-sm-4"><strong>Resort Name</strong></div>
+    <div class="col-sm-7"><strong>Resort URL</strong></div>
+    <div class="col-sm-1"><strong>State</strong></div>
   </div>
-<% end %>
-<br>
-<%= link_to 'States', "/state" %>
+
+  <% @resorts.each do |resort| %>
+    <div class="row">
+      <div class="col-sm-4"><%= link_to resort.resort_name, {:action => 'show', :id => resort.id} -%></div>
+      <div class="col-sm-7"><%= link_to resort.resort_url, resort.resort_url %></div>
+      <div class="col-sm-1"><%= link_to resort.state_id, state_path(:id => resort.state_id) -%></div>
+    </div>
+  <% end %>
+  <br>
+  <%= link_to 'States', "/state" %>
 </div>
 
 

@@ -28,7 +28,7 @@
   <% @resorts.each do |resort| %>
     <tr>
       <td><%= link_to resort.resort_name, resort_path(:id => resort.id)%></td>
-      <td><%= link_to @resort_url, resort.resort_url %></td>
+      <td><%= link_to resort.resort_url, resort.resort_url %></td>
     </tr>
   <% end %>
   </tbody>

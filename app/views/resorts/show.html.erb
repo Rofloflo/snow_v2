@@ -1,9 +1,3 @@
-<%    
-def convert_data_cm(data)
-  data.nil? ? nil : data *2.54
-end
-%>
-
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
@@ -30,15 +24,17 @@ end
       <th>Recent Snow</th>
       <th>Next Day Snow</th>
       <th>Next 5 Days Snow</th>
+      <th>Created at</th>
     </tr>
   </thead>
   <tbody>
   <% @snow_data.each do |data| %>
     <tr>
-      <td><%= data.recent_time %></td>
-      <td><%= data.recent_snowfall %>" &nbsp;(<%= convert_data_cm(data.recent_snowfall) %>cm)</td>
-      <td><%= data.next_snowfall %>" &nbsp;(<%= convert_data_cm(data.next_snowfall) %>cm)</td>
-      <td><%= data.next5_snowfall %>" &nbsp;(<%= convert_data_cm(data.next5_snowfall) %>cm)</td>
+      <td><%= data.recent_time %></td> <%#consider adding blank? conditional = N/A %>
+      <td><%= data.recent_snowfall %>" &nbsp;(<%= SnowDatum.convert_data_cm(data.recent_snowfall) %>cm)</td>
+      <td><%= data.next_snowfall %>" &nbsp;(<%= SnowDatum.convert_data_cm(data.next_snowfall) %>cm)</td>
+      <td><%= data.next5_snowfall %>" &nbsp;(<%= SnowDatum.convert_data_cm(data.next5_snowfall) %>cm)</td>
+      <td><%= data.created_at %></td>    
     </tr>
   <% end %>
   </tbody>

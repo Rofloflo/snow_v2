@@ -5,6 +5,7 @@ class ResortsController < ApplicationController
   # GET /resorts.json
   def index
     @resorts = Resort.all
+    @resort_url = "abc"
     @snow_data = SnowDatum.all
     @states = State.all
   end
@@ -71,7 +72,7 @@ class ResortsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_resort
       @resort = Resort.find(params[:id])
-      @snow_data = SnowDatum.find(params[:id])
+      #@snow_data = SnowDatum.find(params[:id])
       #@state = State.find(params[:id])
     end
 
